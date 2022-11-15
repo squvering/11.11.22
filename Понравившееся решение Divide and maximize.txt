@@ -1,0 +1,16 @@
+public class Kata {
+
+  public static int divideAndMultipy(long[] numbers) {
+    long mod = 1000000007;
+    long s = 1;
+    long m = 0, l = 0;
+    for (int i = 0; i < numbers.length; i++) {
+      long d = numbers[i] & (-numbers[i]);
+      long f = numbers[i] / d;
+      m = m > f ? m : f;
+      s = (s * d) % mod;
+      l = (l + f) % mod;
+    }
+    return (int)((l - m + s * m) % mod);
+  }
+}

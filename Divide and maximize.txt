@@ -1,0 +1,31 @@
+public class Kata {
+  
+  public static int divideAndMultipy(long[] numbers) {
+    long cnt = 0; // количество двоек
+    long maxrem = 0; // максимальный остаток после деления на 2
+    long sum = 0;
+    
+      
+    for(int i=0; i < numbers.length; i++) {
+      while(numbers[i] % 2 == 0) {
+        numbers[i] /= 2;
+        cnt++;
+      }
+      if(numbers[i] > maxrem)
+        maxrem = numbers[i];
+      sum += numbers[i];
+      sum = sum % 1000000007;
+    }
+    sum -= maxrem;
+    
+    for(int i=0; i < cnt; i++) {
+      maxrem = (maxrem * 2) % 1000000007;
+    }
+    sum += maxrem % 1000000007;
+    
+    if(sum < 0)
+      sum += 1000000007;
+    
+    return (int)sum;
+  }
+}
