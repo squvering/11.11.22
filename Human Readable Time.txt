@@ -1,0 +1,23 @@
+public class HumanReadableTime {
+  public static String makeReadable(int seconds) {
+    String rez = "";
+    int hours = seconds / 3600, minutes = (seconds % 3600) / 60;
+    seconds = seconds % 60;
+    if(hours < 10)
+      rez += "0" + hours+ ":";
+    else
+      rez += "" + hours + ":";
+    
+    if(minutes < 10)
+      rez += "0" + minutes + ":";
+    else
+      rez += minutes + ":";
+    
+    if(seconds < 10)
+      rez += "0" + seconds;
+    else
+      rez += seconds;
+    
+    return rez;
+  }
+}
